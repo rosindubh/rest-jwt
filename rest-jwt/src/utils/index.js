@@ -4,9 +4,9 @@ export const fetchRequest = async (username, email, pass) => {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-                username: username,
+                name: username,
                 email: email,
-                pass: pass
+                password: pass
             })
         })
         console.log(response)
