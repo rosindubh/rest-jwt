@@ -9,7 +9,8 @@ export const fetchRequest = async (username, email, pass) => {
                 password: pass
             })
         })
-        console.log(response)
+        const data = await response.json();
+            console.log(data);
     } catch (error) {
         console.log(error)
     }
