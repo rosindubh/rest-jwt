@@ -7,11 +7,12 @@ const App = ()=> {
   const [userName, setUserName] = useState();
   const [email, setEmail] = useState();
   const [pass, setPass] = useState();
+  const [data, setData] = useState();
 
   const submitHandler = (e) => {
     e.preventDefault();
     //call fetch request for creating user
-    fetchRequest(userName, email, pass);
+  setData(fetchRequest(userName, email, pass, setData));
 
   }
 
@@ -23,6 +24,7 @@ const App = ()=> {
     <input placeholder="Password" onChange={(e) => setPass(e.target.value)} />
     <button type="submit">Submit</button>
       </form>
+      <h1>{data ? data.name : 'No User'}</h1>
     </div>
   );
 }
