@@ -10,9 +10,28 @@ export const fetchRequest = async (username, email, pass, setter) => {
             }),
         });
         const data = await response.json();
-            console.log(data.user.name);
+            // console.log(data.user.name);
             setter(data.user)
     } catch (error) {
         console.log(error);
+    }
+}
+
+export const login = async (email, pass, setter) => {
+    try {
+        const response = await fetch("http://localhost:5000/user/login", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                email: email,
+                password: pass,
+            }),
+        });
+        console.log(response)
+        const data = await response.json();
+        setter(data.user)
+        console.log("Hello") //GETS TO HERE THEN GIVES POST 500 internal server error
+    } catch (error) {
+        console.log(error, "AN ERROR OCCURED in login FRONTEND")
     }
 }

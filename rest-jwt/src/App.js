@@ -1,7 +1,7 @@
 //phil welsby - 27 sept 2021
 import './App.css';
 import React, {useState} from "react";
-import { fetchRequest } from './utils';
+import { fetchRequest, login } from './utils';
 
 const App = ()=> {
   const [userName, setUserName] = useState();
@@ -14,6 +14,11 @@ const App = ()=> {
     //call fetch request for creating user
   setData(fetchRequest(userName, email, pass, setData));
 
+  };
+
+  const loginHandler = (e) => {
+    e.preventDefault();
+    login(email, pass, setData);
   }
 
   return (
@@ -24,8 +29,16 @@ const App = ()=> {
     <input placeholder="Password" type='password' onChange={(e) => setPass(e.target.value)} />
     <button type="submit">Submit</button>
       </form>
-      <h1>{data ? data.name : 'No User'}</h1>
-      <h1>{data ? data.email : 'No Email'}</h1>
+      {/* <h1>{data ? data.name : 'No User'}</h1> */}
+      {/* <h1>{data ? data.email : 'No Email'}</h1> */}
+
+      <form onSubmit={loginHandler}>
+        <input placeholder='email' onChange={(e) => setEmail(e.target.value) } />
+        <input placeholder='password' onChange={(e) => setPass(e.target.value)}  />
+        <button type='submit'>Submit</button>
+      </form>
+      <h1>{data ? data.name: 'No User'}</h1>
+      <h1>Logged In</h1>
     </div>
   );
 }
