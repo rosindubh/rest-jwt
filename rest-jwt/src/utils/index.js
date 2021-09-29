@@ -10,8 +10,7 @@ export const fetchRequest = async (username, email, pass, setter) => {
             }),
         });
         const data = await response.json();
-        console.log(data.user)
-            console.log(data.user.username);
+            console.log(data.user.name);
             setter(data.user)
     } catch (error) {
         console.log(error);
