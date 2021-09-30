@@ -27,10 +27,6 @@ const App = ()=> {
     <div className="App">
       <SignUp setUserName={setUserName} setEmail={setEmail} setPass={setPass} submitHandler={submitHandler} />
       <Login setPass={setPass} setEmail={setEmail} loginHandler={loginHandler} />
-      {/* <h1>{data ? data.name : 'No User'}</h1> */}
-      {/* <h1>{data ? data.email : 'No Email'}</h1> */}
-
-
       <h1>{data ? data.name: 'No User'}</h1>
       <h1>Logged In</h1>
     </div>
