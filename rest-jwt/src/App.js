@@ -3,6 +3,7 @@ import './App.css';
 import React, {useState} from "react";
 import { fetchRequest, login } from './utils';
 import { Login } from "./components/login"
+import { SignUp } from './components/signUp';
 
 const App = ()=> {
   const [userName, setUserName] = useState();
@@ -24,12 +25,7 @@ const App = ()=> {
 
   return (
     <div className="App">
-      <form onSubmit={submitHandler}>
-    <input placeholder="UserName" onChange={(e)=> setUserName(e.target.value)} />
-    <input placeholder="Email" onChange={(e)=> setEmail(e.target.value)} />
-    <input placeholder="Password" type='password' onChange={(e) => setPass(e.target.value)} />
-    <button type="submit">Submit</button>
-      </form>
+      <SignUp setUserName={setUserName} setEmail={setEmail} setPass={setPass} submitHandler={submitHandler} />
       <Login setPass={setPass} setEmail={setEmail} loginHandler={loginHandler} />
       {/* <h1>{data ? data.name : 'No User'}</h1> */}
       {/* <h1>{data ? data.email : 'No Email'}</h1> */}
