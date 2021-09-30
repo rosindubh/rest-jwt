@@ -12,6 +12,7 @@ export const fetchRequest = async (username, email, pass, setter) => {
         const data = await response.json();
             // console.log(data.user.name);
             setter(data.user)
+            localStorage.setItem("myToken", data.token)
     } catch (error) {
         console.log(error);
     }

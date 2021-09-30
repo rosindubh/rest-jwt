@@ -2,6 +2,7 @@
 import './App.css';
 import React, {useState} from "react";
 import { fetchRequest, login } from './utils';
+import { Login } from "./components/login"
 
 const App = ()=> {
   const [userName, setUserName] = useState();
@@ -29,14 +30,11 @@ const App = ()=> {
     <input placeholder="Password" type='password' onChange={(e) => setPass(e.target.value)} />
     <button type="submit">Submit</button>
       </form>
+      <Login setPass={setPass} setEmail={setEmail} loginHandler={loginHandler} />
       {/* <h1>{data ? data.name : 'No User'}</h1> */}
       {/* <h1>{data ? data.email : 'No Email'}</h1> */}
 
-      <form onSubmit={loginHandler}>
-        <input placeholder='email' onChange={(e) => setEmail(e.target.value) } />
-        <input placeholder='password' onChange={(e) => setPass(e.target.value)}  />
-        <button type='submit'>Submit</button>
-      </form>
+
       <h1>{data ? data.name: 'No User'}</h1>
       <h1>Logged In</h1>
     </div>
