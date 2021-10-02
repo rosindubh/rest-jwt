@@ -31,6 +31,7 @@ export const login = async (email, pass, setter) => {
         console.log(response) //output to console for testing purposes 
         const data = await response.json();
         console.log(`${data.user.name} has logged in`)
+        localStorage.setItem("myToken", data.token)
         setter(data.user)
     } catch (error) {
         console.log(error, "AN ERROR OCCURED in login FRONTEND, check username and password")
