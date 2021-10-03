@@ -27,7 +27,9 @@ const App = ()=> {
 
   return (
     <div className="App">
+      <h1>Sign Up</h1>
       <SignUp setUserName={setUserName} setEmail={setEmail} setPass={setPass} submitHandler={submitHandler} />
+      <h1>Login</h1>
       <Login setPass={setPass} setEmail={setEmail} loginHandler={loginHandler} />
       <h1>{data ? data.name: 'No User Logged In'}</h1>
       {/* <Notes title="Note 1"/> */}
