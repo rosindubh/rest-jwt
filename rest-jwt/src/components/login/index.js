@@ -5,7 +5,7 @@ export const Login = ({setPass, setEmail, loginHandler}) => {
         <form onSubmit={loginHandler}>
         <input placeholder='email' onChange={(e) => setEmail(e.target.value) } />
         <input placeholder='password' onChange={(e) => setPass(e.target.value)}  />
-        <button type='submit'>Submit</button>
+        <button type='submit'>Login</button>
       </form>
     )
 }
